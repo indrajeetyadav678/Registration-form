@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>validation</title>
+    <style>
+        form{
+            width:40%;
+            text-align: center;
+            border: 2px solid black;
+            margin:auto;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            margin-top: 60px;
+        }
+
+        label{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        form input{
+            width:60%;
+            height:35px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color:black;
+            font-size: 14px;
+            padding-left: 10px;
+
+        }
+
+        input[type="submit"]{
+            width:25%;
+            padding:0;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="">Registration Form</label><br/><br/>
+        <input type="text" name="" id="name1" placeholder="Please enter your name"><br/><br/>
+        <input type="email" name="" id="username" placeholder="Please enter your user name"><br/><br/>
+        <input type="number" name="" id="mobile" maxlength="10" placeholder="Please enter your number"><br/><br/>
+        <input type="password" name="" id="pass" placeholder="Please enter your password"><br/><br/>
+        <input type="password" name="" id="con-pass" placeholder="Confirm password"><br/><br/>
+        <input type="submit"onclick="return reg()" value="Registration"><br/>
+
+
+    </form>
+
+    <script>
+        function reg(){
+            let name = document.getElementById('name1').value;
+            let email = document.getElementById('username').value;
+            let mobile = document.getElementById('mobile').value;
+            let pass = document.getElementById('pass').value;
+            let cpass = document.getElementById('con-pass').value;
+
+            if(name == "")
+            {
+                alert('please enter your name')
+                return false;
+            }
+            else if(email == "")
+            {
+                alert('please enter your user name')
+                return false;
+            }
+            else if(mobile == "")
+            {
+                alert('please enter your number')
+                return false;
+            }
+            else if(pass == "")
+            {
+                alert('please enter your password')
+                return false;
+            }
+            else if(cpass == "")
+            {
+                alert('please enter confirm password')
+                return false;
+            }
+            else{
+              window.alert("Registration success")
+            }
+        }
+    </script>
+</body>
+</html>
