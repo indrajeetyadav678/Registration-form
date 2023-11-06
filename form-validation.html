@@ -36,20 +36,28 @@
             padding:0;
             background-color: antiquewhite;
         }
+
+        #msg-done{
+            font-size: 30px;
+            font-weight: bold;
+            margin-left:40%;
+
+        }
     </style>
 </head>
 <body>
     <form>
         <label for="">Registration Form</label><br/><br/>
         <input type="text" name="" id="name1" placeholder="Please enter your name"><br/><br/>
-        <input type="email" name="" id="username" placeholder="Please enter your user name"><br/><br/>
-        <input type="number" name="" id="mobile" maxlength="10" placeholder="Please enter your number"><br/><br/>
+        <div id="username-error"></div>
+        <input type="text" name="" id="username" placeholder="Please enter your user name"><br/><br/>
+        <input type="tel" name="" id="mobile" maxlength="10" placeholder="Please enter your number"><br/><br/>
         <input type="password" name="" id="pass" placeholder="Please enter your password"><br/><br/>
         <input type="password" name="" id="con-pass" placeholder="Confirm password"><br/><br/>
         <input type="submit"onclick="return reg()" value="Registration"><br/>
-
-
     </form>
+
+    <div id="msg-done"></div>
 
     <script>
         function reg(){
@@ -69,6 +77,15 @@
                 alert('please enter your user name')
                 return false;
             }
+            else if(!((email.includes('@gmail.com')) || (email.includes("@yahoo.com")) || (email.includes("@outlook.com"))) ){
+                document.getElementById('username-error').innerHTML="enter your right username*";
+                // alert('please enter your user name')
+                document.getElementById('username').value="";  
+                document.getElementById('username').focus();
+                document.getElementById('username').style.border="1px solid red";
+                document.getElementById('username').style.outline = "red";
+                return false;
+            }
             else if(mobile == "")
             {
                 alert('please enter your number')
@@ -85,7 +102,10 @@
                 return false;
             }
             else{
-              window.alert("Registration success")
+            //   window.alert("Registration done")
+              document.getElementById('msg-done').style.width="200px".height="200px".border="2px solid red".background="purple";
+             let thank = document.getElementById('msg-done').innerHTML="Registration done"
+            //   return true;
             }
         }
     </script>
